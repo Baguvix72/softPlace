@@ -1,5 +1,11 @@
 from django.db import models
 
+class Category(models.Model):
+    name = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.name
+
 class Post(models.Model):
     header = models.CharField(max_length = 300)
     discription = models.TextField()
@@ -9,9 +15,3 @@ class Post(models.Model):
 
     def __str__(self):
         return self.header
-
-class Category(models.Model):
-    name = models.CharField(max_length = 30)
-
-    def __str__(self):
-        return self.name
