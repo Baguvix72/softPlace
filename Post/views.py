@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from Post.models import Post, Category
 
-def listPage(request):
+def simple_listPage(request):
     AllPost = Post.objects.all()
     AllCategory = Category.objects.all()
     resulSTR = ''
@@ -12,4 +12,6 @@ def listPage(request):
         for categor in categoryList:
             resulSTR = resulSTR + categor.name + ' '
     return HttpResponse(resulSTR)
-    #return render(request, 'Post/list.html')
+
+def listPage(request):
+    return render(request, 'Post/test.html')
