@@ -14,4 +14,4 @@ def simple_listPage(request):
     return HttpResponse(resulSTR)
 
 def listPage(request):
-    return render(request, 'Post/test.html')
+    return render(request, 'Post/list.html')
