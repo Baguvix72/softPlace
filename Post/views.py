@@ -14,4 +14,7 @@ def simple_listPage(request):
     return HttpResponse(resulSTR)
 
 def listPage(request):
-    return render(request, 'Post/list.html')
+    AllPost = Post.objects.all()
+    AllCategory = Category.objects.all()
+    vars = {'AllPost': AllPost, 'AllCategory': AllCategory}
+    return render(request, 'Post/list.html', vars)
