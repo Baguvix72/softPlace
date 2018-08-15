@@ -1,26 +1,14 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% extends "Post/base.html" %}
+{% block content %}  
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+  {% include "Post/inc_pagin.html" %}
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
+  {% for ListItem in ListPost %}
+    {% include "Post/inc_card_deck.html" with ListItem=ListItem %}
+    {% include "Post/inc_ad.html" %}
+  {% endfor %}
 
-    {% for postItem in AllPost %}
-        {% include "Post/inc_card_simple.html" with header=postItem.header description=postItem.discription date=postItem.datePublic %}
-    {% endfor %}
+  {% include "Post/inc_pagin.html" %}
 
+{% endblock content %}
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="/static/JavaScript/jquery-3.3.1.slim.min.js"></script>
-    <script src="/static/JavaScript/popper.min.js"></script>
-    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
-  </body>
-</html>
