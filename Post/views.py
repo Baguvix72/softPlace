@@ -1,15 +1,16 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from Post.models import Post, Category
-from Post.otherCode import GetPostList
+from Post.otherCode import GetListPosts, GetIntCount
 
-def listPage(request):
+def listPage(request, numPage):
     AllPost = Post.objects.all().order_by('-datePublic')
     AllCategory = Category.objects.all()
 
-    PostsFirsts_12 = AllPost[0:12]
+    PageCount = GetIntCount(AllPost.count(), 12)
 
-    ListPost = GetPostList(PostsFirsts_12)
+    PostsPage = AllPost[numPage * 12 - 12:numPage * 12]
+    ListPosts = GetListPosts(PostsPage)
 
-    vars = {'Posts': PostsFirsts_12, 'AllCategory': AllCategory, 'ListPost':ListPost, }
+    vars = {'ListPost':ListPosts, }
     return render(request, 'Post/list.html', vars)
