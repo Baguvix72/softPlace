@@ -18,6 +18,6 @@ from django.urls import path
 from Post.views import listPage
 
 urlpatterns = [
-    path('list/<int:numPage>', listPage),
+    path('list/<str:category>/<int:numPage>', listPage),
     path('admin/', admin.site.urls),
 ]

@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from Post.models import Post, Category
 from Post.otherCode import GetPagePost, GetIntCount, GetListPagin
 
-def listPage(request, numPage):
+def listPage(request, numPage, category):
     AllPost = Post.objects.all().order_by('-datePublic')
     AllCategory = Category.objects.all()
 
