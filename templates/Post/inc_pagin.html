@@ -1,11 +1,16 @@
-<div class="container mt-2 mx-auto" style="width: 300px;">
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Первая</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Последняя</a></li>
+{% if PageCount == 1 %}
+{% elif PageCount > 1 %}
+    <nav aria-label="navigation page block">
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a class="page-link" href="1">Первая</a></li>
+            {% for ListItem in ListPagin %}
+                {% if ListItem == numPage %}
+                    <li class="page-item active"><a class="page-link" href="{{ ListItem }}">{{ ListItem }}</a></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link" href="{{ ListItem }}">{{ ListItem }}</a></li>
+                {% endif %}
+            {% endfor %}
+            <li class="page-item"><a class="page-link" href="{{ PageCount }}">Последняя ({{ PageCount }})</a></li>
         </ul>
     </nav>
-</div>
+{% endif %}
