@@ -12,5 +12,5 @@ def listPage(request, numPage, category):
     ListPagin = GetListPagin(PageCount, numPage)
     ListPosts = GetPagePost(AllPost, numPage)
 
-    vars = {'ListPost':ListPosts, 'numPage':numPage, 'ListPagin':ListPagin, 'PageCount':PageCount}
+    vars = {'ListPost':ListPosts, 'numPage':numPage, 'ListPagin':ListPagin, 'PageCount':PageCount, 'Category':AllCategory}
     return render(request, 'Post/list.html', vars)

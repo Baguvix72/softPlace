@@ -1,6 +1,8 @@
 {% extends "Post/base.html" %}
 {% block content %}  
 
+  {% include "Post/inc_navigat.html" with Category=Category %}
+
   {% include "Post/inc_pagin.html" with numPage=numPage ListPagin=ListPagin PageCount=PageCount %}
 
   {% for ListItem in ListPost %}
