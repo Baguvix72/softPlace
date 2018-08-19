@@ -18,3 +18,8 @@ def listPage(request, numPage, category):
 
     vars = {'ListPost':ListPosts, 'numPage':numPage, 'ListPagin':ListPagin, 'PageCount':PageCount, 'SetCategory':AllCategory, 'ActiveCategory':category}
     return render(request, 'Post/list.html', vars)
+
+def itemPage(request):
+    AllCategory = Category.objects.all()
+    vars = {'SetCategory':AllCategory}
+    return render(request, 'Post/item.html', vars)
