@@ -1,8 +1,6 @@
 {% extends "Post/base.html" %}
 {% block content %} 
-
-{% include "Post/inc_navigat.html" with SetCategory=SetCategory ActiveCategory=ActiveCategory %}
-
+  {% include "Post/inc_navigat.html" with SetCategory=SetCategory ActiveCategory=ActiveCategory %}
   {% if PageCount == 0 %}
     <div class="container mt-2">
       <div class="jumbotron jumbotron-fluid">
@@ -12,16 +10,11 @@
       </div>
     </div>
   {% else %}
-  
-    {% include "Post/inc_pagin.html" with numPage=numPage ListPagin=ListPagin PageCount=PageCount %}
-  
+    {% include "Post/inc_list/pagin.html" with numPage=numPage ListPagin=ListPagin PageCount=PageCount %}
     {% for ListItem in ListPost %}
-      {% include "Post/inc_card_deck.html" with ListItem=ListItem %}
-      {% include "Post/inc_ad.html" %}
+      {% include "Post/inc_list/card_deck.html" with ListItem=ListItem %}
     {% endfor %}
-  
-    {% include "Post/inc_pagin.html" with numPage=numPage ListPagin=ListPagin PageCount=PageCount %}
+    {% include "Post/inc_list/pagin.html" with numPage=numPage ListPagin=ListPagin PageCount=PageCount %}
   {% endif %}
-
 {% endblock content %}
 

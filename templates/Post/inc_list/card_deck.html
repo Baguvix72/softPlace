@@ -1,8 +1,7 @@
-
 <div class="container mt-2">
   <div class="card-deck">
       {% for Item in ListItem %}
-          {% include "Post/inc_card.html" with header=Item.header description=Item.discription %}
+          {% include "Post/inc_list/card.html" with header=Item.header description=Item.discription id=Item.id %}
       {% endfor %}
   </div>
 </div>

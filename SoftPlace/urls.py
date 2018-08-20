@@ -19,6 +19,6 @@ from Post.views import listPage, itemPage
 
 urlpatterns = [
     path('list/<str:category>/<int:numPage>', listPage),
-    path('item/', itemPage),
+    path('item/<int:numPost>', itemPage),
     path('admin/', admin.site.urls),
 ]
