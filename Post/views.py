@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from Post.models import Post, Category
 from Post.otherCode import GetPagePost, GetIntCount, GetListPagin
+
+def homePage(request):
+    return redirect(listPage, numPage = 1, category = "all")
 
 def listPage(request, numPage, category):
     AllPost = Post.objects.all().order_by('-datePublic')
@@ -20,6 +23,8 @@ def listPage(request, numPage, category):
     return render(request, 'Post/list.html', vars)
 
 def itemPage(request, numPost):
+    CurrentPost = Post.objects.get(id = numPost)
     AllCategory = Category.objects.all()
-    vars = {'SetCategory':AllCategory}
+
+    vars = {'SetCategory':AllCategory, 'Post':CurrentPost}
     return render(request, 'Post/item.html', vars)

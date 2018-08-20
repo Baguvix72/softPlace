@@ -11,6 +11,7 @@ class Category(models.Model):
 class Post(models.Model):
     header = models.CharField(max_length = 300)
     discription = models.TextField()
+    collap = models.TextField(blank = True)
     dateCreation = models.DateTimeField(auto_now_add = True)
     datePublic = models.DateTimeField(blank = True)
     categorys = models.ManyToManyField(Category)

@@ -1,8 +1,8 @@
 <div class="container mt-2">
     <div class="card mb-3">
-        {% include "Post/inc_item/inc_desc/carous.html"%}
+        {% include "Post/inc_item/inc_desc/carous.html" %}
         <div class="card-body">
-            <h4 class="card-title"><b>Card title</b></h4>
+            <h4 class="card-title"><b>{{ Post.header }}</b></h4>
             <p class="card-text">
                 <b>Официальный сайт:</b>
                 <br>
@@ -11,9 +11,9 @@
             <p class="card-text">
                 <b>Описание:</b>
                 <br>
-                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                {{ Post.discription }}
             </p>
-          {% include "Post/inc_item/inc_desc/collap.html"%}       
+          {% include "Post/inc_item/inc_desc/collap.html" %}       
         </div>
     </div>
 </div>
