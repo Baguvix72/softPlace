@@ -41,4 +41,20 @@ def GetListPagin(countPage, numPage):
 
     return ListNumPage
 
+def GetSpoiler(Text):
+    SpoilerList = []
+    id = 1
+
+    while Text.find("~~~name=") != -1:
+        spoilerName_NumBegin = Text.find("~~~name=")
+        spoilerName_NumEnd = Text.find("~~~", spoilerName_NumBegin + 8)
+        SpoilerName = Text[spoilerName_NumBegin + 8:spoilerName_NumEnd]
+        Text = Text[spoilerName_NumEnd + 3:]
+        spoilerText_NumEnd = Text.find("~~~end~~~")
+        SpoilerText = Text[0:spoilerText_NumEnd]
+        NameAndSpoiler = {"name":SpoilerName, "text":SpoilerText, "id":id}
+        SpoilerList.append(NameAndSpoiler)
+        id += 1
+
+    return SpoilerList
 

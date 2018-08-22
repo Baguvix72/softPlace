@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from Post.models import Post, Category
-from Post.otherCode import GetPagePost, GetIntCount, GetListPagin
+from Post.otherCode import GetPagePost, GetIntCount, GetListPagin, GetSpoiler
 
 def homePage(request):
     return redirect(listPage, numPage = 1, category = "all")
@@ -25,6 +25,7 @@ def listPage(request, numPage, category):
 def itemPage(request, numPost):
     CurrentPost = Post.objects.get(id = numPost)
     AllCategory = Category.objects.all()
+    ListSpoilers = GetSpoiler(CurrentPost.collap)
 
-    vars = {'SetCategory':AllCategory, 'Post':CurrentPost}
+    vars = {'SetCategory':AllCategory, 'Post':CurrentPost, 'Spoilers':ListSpoilers}
     return render(request, 'Post/item.html', vars)

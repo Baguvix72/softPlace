@@ -13,7 +13,9 @@
                 <br>
                 {{ Post.discription }}
             </p>
-          {% include "Post/inc_item/inc_desc/collap.html" %}       
+            {% for Item in Spoilers %}
+                {% include "Post/inc_item/inc_desc/collap.html" with Item=Item %}       
+            {% endfor %}
         </div>
     </div>
 </div>

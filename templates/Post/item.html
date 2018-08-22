@@ -1,7 +1,7 @@
 {% extends "Post/base.html" %}
 {% block content %} 
   {% include "Post/inc_navigat.html" with SetCategory=SetCategory %}
-  {% include "Post/inc_item/desc.html" with Post=Post %}
+  {% include "Post/inc_item/desc.html" with Post=Post Spoilers=Spoilers %}
   {% include "Post/inc_item/download.html" %}
   {% include "Post/inc_item/extra.html" %}
 {% endblock content %}
