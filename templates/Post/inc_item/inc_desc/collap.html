@@ -9,7 +9,9 @@
     </div>
     <div id="collapse{{ Item.id }}" class="collapse" aria-labelledby="heading{{ Item.id }}" data-parent="#accordionExample">
       <div class="card-body">
-        {{ Item.text }}
+        {% autoescape off %}
+          {{ Item.text }}
+        {% endautoescape %}
       </div>
     </div>
   </div>
